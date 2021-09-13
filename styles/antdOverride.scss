@@ -1,0 +1,43 @@
+#Navbar{
+  .ant-menu{
+    background: transparent;
+    color: white;
+  }
+  .ant-menu-horizontal > .ant-menu-item a{
+    color: white;
+  }
+}
+
+// Grid
+.ant-col{
+  padding: 15px;
+}
+// Menu
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+  color: #3ed0bc;
+}
+.ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover{
+  color: #3ed0bc;
+}
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected::after{
+  display: none;
+}
+.ant-menu-horizontal{
+  border-bottom: none !important;
+}
+.ant-menu-vertical.ant-menu-sub, .ant-menu-vertical-left.ant-menu-sub, .ant-menu-vertical-right.ant-menu-sub{
+  position: relative;
+  padding: 20px;
+  min-width: 260px;
+  right: 0;
+  text-align: right;
+}
+.ant-menu-submenu-popup .anticon {
+  color: #3ed0bc;
+}
+.ant-menu-submenu-popup {
+  box-shadow: 0 10px 55px 5px rgb(137 173 255 / 35%);
+  > .ant-menu {
+    border-radius: 15px;
+  }
+}
