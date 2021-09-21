@@ -1,0 +1,33 @@
+.container{
+    padding: 5%;
+}
+.title{
+    text-align: center;
+    font-weight: bold;
+    color:#58468c;
+    margin-bottom: 40px;
+}
+.list{
+
+}
+.list li {
+    margin: 5px 0;
+    color: gray;
+}
+.post{
+    img{
+        cursor: pointer;
+        width: 100% !important;
+        max-height: 300px;
+    }
+    h4{
+        direction: rtl;
+        text-align: right;
+        margin-top: 10px;
+        color:#58468c;
+    }
+}
+
+@media (max-width: 600px) {
+
+}

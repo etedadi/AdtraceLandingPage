@@ -1,0 +1,57 @@
+.container {
+  padding: 5%;
+  direction: rtl;
+  font-family: IRANSans, 'Roboto', sans-serif;
+
+  img {
+    max-width: 70%;
+    margin-right: 15%;
+    height: auto;
+  }
+  li{
+    text-align: right!important;
+    line-height: 220%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #58468c;
+  }
+  h2{
+    font-size: 27px;
+  }
+  h3{
+    font-size: 24px;
+  }
+  h4{
+    font-size: 21px;
+  }
+  p{
+    color: #716c80;
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  color: #58468c;
+  margin: 40px 0;
+
+}
+
+.headImage {
+  display: flex;
+  justify-content: center;
+  img{
+    max-width: 100% !important;
+    margin: 0;
+    height: 650px;
+    width: auto;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+}

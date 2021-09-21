@@ -1,10 +1,21 @@
 #Navbar{
-  .ant-menu{
+  .ant-menu-root{
     background: transparent;
     color: white;
+    font-size: 15px;
+    @media (max-width: 576px) {
+      background: white;
+      color: rgba(0, 0, 0, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 0 25px #d9d9d9;
+      overflow: hidden;
+    }
   }
   .ant-menu-horizontal > .ant-menu-item a{
     color: white;
+    &:hover{
+      color: #3ed0bc;
+    }
   }
 }
 
@@ -36,8 +47,33 @@
   color: #3ed0bc;
 }
 .ant-menu-submenu-popup {
+  border-radius: 15px;
   box-shadow: 0 10px 55px 5px rgb(137 173 255 / 35%);
   > .ant-menu {
     border-radius: 15px;
   }
+}
+
+
+// swiper
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+  bottom: -6px!important;
+}
+.swiper-pagination-bullet{
+  width: 10px !important;
+  height: 10px !important;
+}
+.swiper-pagination-bullet-active{
+  background: #00ae8f!important;
+}
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+  color: #c1bfbf;
+  font-size: 30px;
+  margin: 15px;
+}
+
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{
+  color: #c1bfbf;
+  font-size: 30px;
+  margin: 15px;
 }

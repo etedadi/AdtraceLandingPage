@@ -1,5 +1,43 @@
 .navbar{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
   height: 80px;
   background: linear-gradient(#08324f,#04716f);
   padding: 15px 30px;
+  z-index: 1;
+  > div:first-child{
+    width: 90%;
+  }
+
+  @media (max-width: 600px) {
+
+  }
+
+}
+
+.menuButton{
+  font-size: 24px;
+  color: white;
+}
+
+.left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.locale{
+  cursor: pointer;
+  direction: ltr;
+  transition: color 0.5s;
+  color: white;
+  font-size: 16px;
+  padding: 15px 30px;
+  span{
+    margin: 2px;
+  }
+  &:hover{
+    color: #3ed0bc;
+  }
 }

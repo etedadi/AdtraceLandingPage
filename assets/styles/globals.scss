@@ -1,10 +1,44 @@
 html,
 body {
-  direction: rtl;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+html:lang(en){
+  li {
+    text-align: left;
+  }
+}
+html:lang(fa){
+  direction: rtl;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  p,
+  li,
+  input,
+  textarea,
+  span,
+  div,
+  html,
+  body,
+  html a {
+    font-family:IRANSans,  'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  p{
+    color: #716c80;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 25px;
+  }
 }
 
 a {
@@ -71,26 +105,6 @@ a {
 }
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-p,
-li,
-input,
-textarea,
-span,
-div,
-html,
-body,
-html a {
-  font-family:IRANSans,  'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 a:hover{
   color: #3ed0bc;
@@ -100,5 +114,23 @@ a:hover{
   height: 20px;
   margin-inline-end: 7px;
   font-size: 18px !important;
+}
+
+.btn-primary{
+  background: linear-gradient(90deg, rgb(62, 214, 188) 0%, rgb(66, 137, 185) 100%);
+  color: white!important;
+  border: none;
+  border-radius: 20px;
+  min-width: 90px;
+  padding: 7px 15px;
+  margin: 15px;
+  filter: blur(0px) grayscale(0%) brightness(100%);
+  transform: translate(0px, 0px);
+  height: auto;
+  &:hover{
+    background: linear-gradient(90deg, rgb(62, 214, 188) 0%, rgb(66, 137, 185) 100%, rgb(0, 122, 255) );
+    filter: blur(0px) grayscale(0%) brightness(120%);
+    transform: scale(1.1, 1.1);
+  }
 }
 

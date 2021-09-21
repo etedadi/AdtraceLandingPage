@@ -3,11 +3,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import ReactHtmlParser from 'react-html-parser';
 import Navbar from "../../components/layout/navbar";
-import styles from '../../styles/pages/Blog.module.scss'
+import styles from './Post.module.scss'
+import Footer from "../../components/layout/footer";
 
 export default function Post({post, image}:any) {
 
-
+console.log({post})
   return (
     <>
     <Navbar />
@@ -16,13 +17,16 @@ export default function Post({post, image}:any) {
         <title>{post.title?.rendered}</title>
         {ReactHtmlParser(post.yoast_head)}
       </Head>
-      <main className={styles.main}>
-        <Image src={image.source_url} alt={image.alt_text} width={1200} height={500} />
-        <h1>{post.title?.rendered}</h1>
+      <main>
+        <div className={styles.headImage} >
+          <Image src={image.source_url} alt={image.alt_text} width={1200} height={500} />
+        </div>
+        <h1 className={styles.title}>{post.title?.rendered}</h1>
         {ReactHtmlParser(post.content.rendered)}
       </main>
 
     </div>
+      <Footer/>
       </>
   )
 }
@@ -33,9 +37,11 @@ export async function getStaticPaths() {
   const res = await fetch('https://adtrace.io/fa/wp-json/wp/v2/posts?_fields=id,title&per_page=100')
   const posts = await res.json()
   // Get the paths we want to pre-render based on posts
-  const paths = posts.map((post:any) => ({
-    params: { id: post.id.toString() },
-  }))
+  let paths:any = []
+  posts.map((post:any) => {
+      paths.push({params: {id: post.id.toString()}, locale: 'fa'})
+      paths.push({params: {id: post.id.toString()}, locale: 'en'})
+    })
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
