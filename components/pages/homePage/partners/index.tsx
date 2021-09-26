@@ -3,8 +3,13 @@ import Link from "next/link";
 import * as images from "./images"
 import styles from './Partners.module.scss'
 import {Col, Row, Tooltip} from "antd";
+import translations from "../../../../assets/translations/pages/home";
+import {useRouter} from "next/router";
 
 export default function Partners() {
+  // @ts-ignore
+  const tr = translations[useRouter().locale]
+
   const list = [
     {logo: images.yektanet , name:"یکتانت", link: "https://www.yektanet.com/"},
     {logo: images.webEngage , name:"WebEngage", link: "https://webengage.com/"},
@@ -25,7 +30,7 @@ export default function Partners() {
   return (
     <div className={styles.container}>
       <h3>
-        شبکه‌های تبلیغاتی که با ما همکاری می‌کنند:
+        {tr['partners-title']}
       </h3>
       <Row>
         {list.map(item =>

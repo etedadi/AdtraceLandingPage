@@ -8,31 +8,36 @@ import 'swiper/css/pagination';
 import SwiperCore, {
   Autoplay,Navigation,Pagination
 } from 'swiper';
+import translations from "../../../../assets/translations/pages/home";
+import {useRouter} from "next/router";
 
 
 SwiperCore.use([Autoplay,Navigation,Pagination]);
 
 export default function Quotes() {
+  // @ts-ignore
+  const tr = translations[useRouter().locale]
+
   const list :any = [
     {
-      quote: "در این مدتی که از خدمات ادتریس استفاده کردم تجربه رضایت بخشی واسم رقم خورده. پشتیبانی فوق العاده با اخلاق و حرفه ای دارن. در هر تایمی از شبانه روز و در هر زمینه ای که امکانش بوده به بنده کمک کردند.",
-      name: "زکیه دباغ",
-      position: 'کارشناس پرفورمنس مارکتینگ همراه کارت'
+      quote: tr['quotes-comment1'],
+      name: tr['quotes-comment1-name'],
+      position: tr['quotes-comment1-position']
     },
     {
-      quote: "تجربه کاری با ادتریس همراه با پشتیبانی ۲۴ ساعته و تیم مهربان و حرفه‌ای است، درکنار توانایی فنی قوی تیم ادتریس تیم مدیریت و پشتیبانی همراه و همدل تجربه  همکاری خوب و شیرینی را برای گپ‌فیلم رقم زده‌است.",
-      name: "مریم جابری",
-      position: 'مدیر محصول گپ فیلم'
+      quote: tr['quotes-comment2'],
+      name: tr['quotes-comment2-name'],
+      position: tr['quotes-comment2-position']
     },
     {
-      quote: "یکی از اولین دشبوردهایی که اول صبح باز میکنم ادتریس هست.  هیچ کم و کسری از نمونه های مشابه خارجی نداره. رابط کاربری ساده و زیبا!",
-      name: "ترکان کامرانی",
-      position: 'مدیر گروه رشد ترب'
+      quote: tr['quotes-comment3'],
+      name: tr['quotes-comment3-name'],
+      position: tr['quotes-comment3-position']
     },
     {
-      quote: "امروز بعد از گذشت تقریبا دو سال که از همکاری مجموعه آچاره و ادتریس می‌گذرد، لازم است به تیم محترم ادتریس صمیمانه تبریک بگویم، چرا که هر روز برای بهبود عملکرد این سرویس تلاش کرده‌اید و مسیر سختی را برای معرفی این سرویس به کسب و کارها طی کرده‌‌اید‌ و چه عالی که موفق شده‌اید.",
-      name: "آیسان صبایی",
-      position: 'مدیر مارکتینگ آچاره'
+      quote: tr['quotes-comment4'],
+      name: tr['quotes-comment4-name'],
+      position: tr['quotes-comment4-position']
     },
 
   ]
@@ -40,7 +45,7 @@ export default function Quotes() {
   return (
     <div className={styles.container}>
       <h3>
-        کاربران ادتریس چه می‌گویند؟
+        {tr['quotes-title']}
       </h3>
       <Swiper
         slidesPerView={3}

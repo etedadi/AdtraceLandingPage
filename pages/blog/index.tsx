@@ -5,7 +5,7 @@ import styles from './Blog.module.scss'
 import Navbar from "../../components/layout/navbar";
 import Footer from "../../components/layout/footer"
 import MetaHead from "../../components/layout/meta-head"
-import translations from "../../assets/translations/layout/footer";
+import translations from "../../assets/translations/pages/blog";
 import {Row, Col} from "antd";
 
 

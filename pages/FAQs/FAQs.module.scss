@@ -1,0 +1,40 @@
+.container{
+    position: relative;
+    padding: 5%;
+}
+.title{
+    text-align: center;
+    font-weight: bold;
+    color:#58468c;
+    margin-bottom: 40px;
+}
+
+.mainImage{
+    img{
+        position: sticky;
+        top : 25% ;
+        width: 70%;
+        margin: 0 15%;
+    }
+}
+
+.post{
+    img{
+        cursor: pointer;
+        width: 100% !important;
+        max-height: 300px;
+    }
+    h2{
+        direction: rtl;
+        text-align: right;
+        margin-top: 10px;
+        color:#58468c;
+    }
+    p{
+        white-space: break-spaces;
+    }
+}
+
+@media (max-width: 600px) {
+
+}

@@ -14,7 +14,7 @@ export default function Footer() {
 
   return(
     <Row className={styles.footer}>
-      <Col lg={12}>
+      <Col lg={12} id="aboutUs">
         <h3 style={{paddingTop: 0}}><img src={images.AdTraceIconLight} /></h3>
         <p>{tr['aboutUs-content']}</p>
 
@@ -23,16 +23,15 @@ export default function Footer() {
         <h3>{tr.adtrace}</h3>
         <div className={styles.links}>
           <Link href="/">{tr.home}</Link>
-          <Link href="/about-us">{tr.aboutUs}</Link>
           <Link href="/#customers">{tr.customers}</Link>
-          <Link href="/blog">{tr.blog}</Link>
-          <Link href="/FAQs">{tr.faq}</Link>
+          <Link href="/blog" locale="fa">{tr.blog}</Link>
+          <Link href="/FAQs" locale="fa">{tr.faq}</Link>
           <Link href="https://github.com/adtrace">{tr.documents}</Link>
-          <Link href="/privacy-policy">{tr.privacy}</Link>
+          <Link href="/privacy" locale="fa">{tr.privacy}</Link>
         </div>
 
       </Col>
-      <Col lg={6}>
+      <Col lg={6} id="contactUs">
         <h3>{tr.contactUs}</h3>
         <div>
           <div>

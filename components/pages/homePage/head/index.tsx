@@ -2,25 +2,29 @@ import React from "react";
 import styles from './Head.module.scss'
 import img1 from './images/Group-16228.png'
 import {Button} from "antd";
+import translations from "../../../../assets/translations/pages/home";
+import {useRouter} from "next/router";
 
 
 
 
 export default function Head() {
+  // @ts-ignore
+  const tr = translations[useRouter().locale]
   return (
       <div className={styles.container}>
         <img src={img1.src} className={styles.img1}/>
         <div className={styles.texts}>
-          <h4>پلتفرم اتریبیوشن و آنالیتیکس موبایلی</h4>
-          <h3>دقیق بسنجید و بهینه هزینه کنید</h3>
-          <p>ادتریس به عنوان رهبر بازار ترکرهای داخلی سعی می‌کند داده‌های امن، دقیق و معتبر در اختیار صاحبان اپلیکیشن قراردهد. ادتریس منبع نصب اپلیکیشن را شناسایی، از تقلب در نصب جلوگیری و بهترین و موثرترین شبکه تبلیغاتی برای نصب اپلیکیشن را شناسایی می‌کند</p>
+          <h4>{tr['head-title']}</h4>
+          <h3>{tr['head-title2']}</h3>
+          <p>{tr['head-des']}</p>
           <div>
-            <Button className="btn-primary">
-              ورود
+            <Button className="btn-primary" style={{marginInlineStart:0}}>
+              {tr['head-btn1']}
             </Button>
 
             <Button className="btn-primary">
-              ثبت نام
+              {tr['head-btn2']}
             </Button>
 
           </div>

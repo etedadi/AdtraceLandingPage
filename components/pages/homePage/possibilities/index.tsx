@@ -2,56 +2,63 @@ import styles from "./Possibilities.module.scss";
 import React from "react";
 import * as images from "./images"
 import {Button, Col, Row} from "antd";
+import translations from "../../../../assets/translations/pages/home";
+import {useRouter} from "next/router";
 
-const list = [
-  {img: images.icon1, title: 'اتریبیوشن', des: 'شناسایی بهترین کانال‌های جذب کاربران'},
-  {img: images.icon2, title: 'دسته‌بندی مشتریان', des: 'شناسایی گروه‌های مختلف مشتریان'},
-  {img: images.icon3, title: 'جلوگیری از تقلب موبایلی', des: 'دسترسی به داده‌های معتبر و واقعی'},
-  {img: images.icon4, title: 'پشتیبانی از انواع پلتفرم', des: 'پشتیبانی جامع'},
-  {img: images.icon5, title: 'آنالیتیکس', des: 'تحلیل داده‌های تبلیغاتی'},
-  {img: images.icon6, title: 'مدیریت حساب کاربری', des: 'مدیریت راحت همه کمپین‌ها'},
-]
 
-const list2 = [
-  {
-    img: images.image1, title: 'اتریبیوشن', title2: 'شناسایی بهترین کانال‌های جذب کاربران',
-    des: 'با استفاده از اتریبیوشن شما خواهید دانست هر کدام از نصب‌های اپلیکیشن شما از کدام کانال و کمپین تبلیغاتی آمده است؛ در نتیجه می‌توانید بهترین و موثرترین شبکه تبلیغاتی و منبع نصب خود را شناسایی کنید. \n قابلیت‌های اتریبیوشن ادتریس:',
-    items: ['امکان ساخت نامحدود ترکر', 'امکان مشاهده و تحلیل آمار هر منبع به صورت مجزا', 'دسترسی به داده‌های خام برای ارزیابی و بهبود کمپین‌ها']
-  },
-  {
-    img: images.image2, title: 'آنالیتیکس', title2: 'تحلیل داده‌های تبلیغاتی',
-    des: 'شما می‌توانید با چند کلیک ساده، داده‌هایی که از کمپین‌های تبلیغاتی خود به دست آورده‌اید را بررسی و با اعمال فیلترهایی که در اختیار دارید، رفتار کاربر در اپلیکیشن را تحلیل نمایید.\n' +
-      'قابلیت‌های آنالیتیکس ادتریس:',
-    items: ['امکان رصد رفتار کاربران در برنامه', 'شناسایی کاربرانی که اپلیکیشن شما را پاک کرده‌اند', 'امکان مشاهده میزان درآمد و ارزشی که هر کاربر خلق می‌کند']
-  },
-  {
-    img: images.image3, title: 'جلوگیری از تقلب موبایلی', title2: 'دسترسی به داده‌های معتبر و واقعی',
-    des: 'تقلب‌های موبایلی، یکی از بزرگ‌ترین تهدید کسب و کارهای آنلاین هستند.\n' +
-      'با روش‌های ضدتقلب ادتریس، شما مطمئن خواهید بود داده‌هایی که دریافت می‌کنید کاملا معتبر هستند؛ چرا که ادتریس توانایی مقابله با انواع تقلب‌های موبایلی را دارد.\n' +
-      'تقلب‌های موبایلی که ادتریس آن‌ها را شناسایی می‌کند:',
-    items: ['Click Capping', 'Click Injection', 'Anonymous IP', 'SDK Spoofing', 'Distribution Model']
-  },
-  {
-    img: images.image4, title: 'دسته‌بندی مشتریان', title2: 'شناسایی گروه‌های مختلف مشتریان',
-    des: 'در پنل ادتریس، رفتار یک کاربر از زمانی که روی لینک تبلیغاتی کلیک می‌کند و سپس اقدام به نصب اپلیکیشن می‌کند، قابل رصد است. همچنین شما می‌توانید گروه‌‎های مختلف کاربران را شناسایی کنید و با تحلیل رفتار آن‌ها خدمات بهینه‌تری به هر کدام از کاربران خود ارائه دهید.',
-    items: []
-  },
-  {
-    img: images.image5, title: 'مدیریت حساب کاربری', title2: 'مدیریت راحت همه کمپین‌ها',
-    des: 'در یک اکانت شما می‌توانید چند اپلیکیشن مختلف ایجاد کنید، بدون محدودیت، ترکر و رخداد بسازید و دسترسی‌های متفاوتی به همکاران خود بدهید. همچنین در ادتریس، همه داده‌ها به صورت لحظه‌ای قابل مشاهده هستند و شما میتوانید از داشبوردهای شخصی‌سازی‌شده استفاده کنید.',
-    items: []
-  },
-  {
-    img: images.image6, title: 'پشتیبانی از انواع پلتفرم', title2: 'پشتیبانی جامع',
-    des: 'صاحبان اپلیکیشن با استفاده از ادتریس دیگر نگران پشتیبانی از پلتفرم‌های مختلف نیستند. پلتفرم‌هایی که توسط ادتریس پشتیبانی می‌شوند.',
-    items: [{img: images.react, text: "React"}, {img: images.android, text: "Android"}, {
-      img: images.ios,
-      text: "IOS"
-    }, {img: images.flutter, text: "Flutter"}, {img: images.pwa, text: "PWA"}, {img: images.unity, text: "Unity"}]
-  },
-
-]
 export default function Possibilities() {
+  // @ts-ignore
+  const tr = translations[useRouter().locale]
+
+  const list = [
+    {img: images.icon1, title: tr['Possibilities-list1-title1'], des: tr['Possibilities-list1-des1']},
+    {img: images.icon2, title: tr['Possibilities-list1-title2'], des: tr['Possibilities-list1-des2']},
+    {img: images.icon3, title: tr['Possibilities-list1-title3'], des: tr['Possibilities-list1-des3']},
+    {img: images.icon4, title: tr['Possibilities-list1-title4'], des: tr['Possibilities-list1-des4']},
+    {img: images.icon5, title: tr['Possibilities-list1-title5'], des: tr['Possibilities-list1-des5']},
+    {img: images.icon6, title: tr['Possibilities-list1-title6'], des: tr['Possibilities-list1-des6']},
+  ]
+
+  const list2 = [
+    {
+      img: images.image1, title: tr['Possibilities-list2-title1-1'], title2: tr['Possibilities-list2-title1-2'],
+      des: tr['Possibilities-list2-des1'],
+      items: [tr['Possibilities-list2-item1-1'], tr['Possibilities-list2-item1-2'], tr['Possibilities-list2-item1-3']],
+    },
+    {
+      img: images.image2, title: tr['Possibilities-list2-title2-1'], title2: tr['Possibilities-list2-title2-2'],
+      des: tr['Possibilities-list2-des2'],
+      items: [tr['Possibilities-list2-item2-1'], tr['Possibilities-list2-item2-2'], tr['Possibilities-list2-item2-3']],
+    },
+    {
+      img: images.image3, title: tr['Possibilities-list2-title3-1'], title2: tr['Possibilities-list2-title3-2'],
+      des: tr['Possibilities-list2-des3'],
+      items: [tr['Possibilities-list2-item3-1'], tr['Possibilities-list2-item3-2'], tr['Possibilities-list2-item3-3'], tr['Possibilities-list2-item3-4'], tr['Possibilities-list2-item3-5']],
+    },
+    {
+      img: images.image4, title: tr['Possibilities-list2-title4-1'], title2: tr['Possibilities-list2-title4-2'],
+      des: tr['Possibilities-list2-des4'],
+      items:[],
+    },
+    {
+      img: images.image5, title: tr['Possibilities-list2-title5-1'], title2: tr['Possibilities-list2-title5-2'],
+      des: tr['Possibilities-list2-des5'],
+      items:[],
+    },
+    {
+      img: images.image6, title: tr['Possibilities-list2-title6-1'], title2: tr['Possibilities-list2-title6-2'],
+      des:  tr['Possibilities-list2-des6'],
+      items: [{img: images.react, text: tr['Possibilities-list2-item6-1']},
+        {img: images.android, text: tr['Possibilities-list2-item6-2']},
+        {img: images.ios, text: tr['Possibilities-list2-item6-3']},
+        {img: images.flutter, text: tr['Possibilities-list2-item6-4']},
+        {img: images.pwa, text: tr['Possibilities-list2-item6-5']},
+        {img: images.unity, text: tr['Possibilities-list2-item6-6']}
+        ]
+    },
+
+  ]
+
   return (
     <>
       <div className={styles.container}>
@@ -64,7 +71,7 @@ export default function Possibilities() {
               <img src={item.img.src}/>
               <h3>{item.title}</h3>
               <p>{item.des}</p>
-              <Button>بیشتر</Button>
+              <Button>{tr.more}</Button>
             </Col>
           )}
         </Row>
@@ -72,7 +79,7 @@ export default function Possibilities() {
       <div className={styles.bg}/>
       <div className={styles.descriptions}>
         {list2.map((n, index) =>
-          <Row className={styles.cardDes}>
+          <Row className={styles.cardDes} id={`possibility${index + 1}`}>
             <Col lg={12} push={index % 2 === 0 ? 12 : 0} className={styles.imgContainer}>
               <img src={n.img.src}/>
             </Col>

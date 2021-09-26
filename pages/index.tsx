@@ -7,13 +7,24 @@ import Customers from "../components/pages/homePage/customers";
 import Partners from "../components/pages/homePage/partners";
 import Quotes from "../components/pages/homePage/quotes";
 import Blogs from "../components/pages/homePage/blogs";
+import Statistics from "../components/pages/homePage/statistics";
+import Social from "../components/pages/homePage/social";
 import Footer from "../components/layout/footer";
 import styles from './Home.module.scss'
+import MetaHead from "../components/layout/meta-head";
+import translations from "../assets/translations/pages/home";
+import {useRouter} from "next/router";
 
 
 export default function Home({posts}: any) {
+  // @ts-ignore
+  const tr = translations[useRouter().locale]
   return (
     <>
+      <MetaHead
+        title={tr.title}
+        description={tr.description}
+      />
       <Navbar transparent/>
       <div className={styles.container}>
         <Head/>
@@ -23,6 +34,8 @@ export default function Home({posts}: any) {
         <Partners />
         <Quotes />
         <Blogs posts={posts} />
+        <Statistics />
+        <Social />
       </div>
       <Footer/>
     </>

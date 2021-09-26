@@ -1,8 +1,8 @@
 .container{
    background: white;
    width: 100%;
-  padding-bottom: 40px;
-   border-radius: 90px;
+   padding-bottom: 40px;
+   border-radius: 90px 90px 0 0;
    box-shadow: 0 10px 55px 5px rgb(137 173 255 / 35%);
    border: 1px solid #e5e4e4;
    margin: -120px 0 0px 0;
@@ -57,7 +57,7 @@
 .bg{
   position: relative;
   height: 500px;
-  top: -120px;
+  top: 0px;
   z-index: -1;
   background: url("./images/bg.jpg") center no-repeat;
   background-attachment: fixed;
