@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect}from "react";
 import Navbar from "../components/layout/navbar";
 import Head from "../components/pages/homePage/head";
 import Possibilities from "../components/pages/homePage/possibilities";
@@ -19,13 +19,31 @@ import {useRouter} from "next/router";
 export default function Home({posts}: any) {
   // @ts-ignore
   const tr = translations[useRouter().locale]
+  const [transparent, setTransparent] = useState(false);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    if (position > 100) {
+      setTransparent(false);
+    } else {
+      setTransparent(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <MetaHead
         title={tr.title}
         description={tr.description}
       />
-      <Navbar transparent/>
+      <Navbar transparent={transparent}/>
       <div className={styles.container}>
         <Head/>
         <Possibilities />
@@ -37,7 +55,7 @@ export default function Home({posts}: any) {
         <Statistics />
         <Social />
       </div>
-      <Footer/>
+      <Footer rounded />
     </>
   )
 }

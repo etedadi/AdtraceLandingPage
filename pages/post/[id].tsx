@@ -5,10 +5,11 @@ import ReactHtmlParser from 'react-html-parser';
 import Navbar from "../../components/layout/navbar";
 import styles from './Post.module.scss'
 import Footer from "../../components/layout/footer";
+import useWindowSize from "../../utills/useWindowSize";
 
 export default function Post({post, image}:any) {
-
-console.log({post})
+  const size:any = useWindowSize();
+  const mobile =  size.width < 576
   return (
     <>
     <Navbar />
@@ -18,10 +19,10 @@ console.log({post})
         {ReactHtmlParser(post.yoast_head)}
       </Head>
       <main>
-        <div className={styles.headImage} >
-          <Image src={image.source_url} alt={image.alt_text} width={1200} height={500} />
-        </div>
         <h1 className={styles.title}>{post.title?.rendered}</h1>
+        <div className={styles.headImage} >
+          <Image src={image.source_url} alt={image.alt_text} width={1300} height={500} />
+        </div>
         {ReactHtmlParser(post.content.rendered)}
       </main>
 

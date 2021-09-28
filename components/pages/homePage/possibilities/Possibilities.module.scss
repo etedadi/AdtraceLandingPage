@@ -57,7 +57,7 @@
 .bg{
   position: relative;
   height: 500px;
-  top: 0px;
+  top: 0;
   z-index: -1;
   background: url("./images/bg.jpg") center no-repeat;
   background-attachment: fixed;
@@ -65,19 +65,20 @@
 
 .bg2{
   position: relative;
-  height: 400px;
+  height: 500px;
   z-index: -1;
   background: url("./images/bg2.jpg") center no-repeat;
   background-attachment: fixed;
 }
 
 .descriptions{
-  padding: 0 5% 120px 5%;
+  padding: 30px 5% 120px 5%;
   border-radius: 5px;
 }
 
 
 .cardDes{
+  margin-top: 20px;
   display: flex;
   align-items: center;
   h3{
@@ -103,6 +104,7 @@
   ul {
     list-style: none; /* Remove default bullets */
     padding-right: 0;
+    padding-left: 0;
   }
 
   ul li::before {
@@ -132,9 +134,41 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  img{
+    height: 80px;
+  }
 }
 
 
 @media (max-width: 600px) {
+  .container{
+    border-radius: 40px 40px 0 0;
+  }
+  .descriptions{
+    padding: 15px;
+  }
+  .card{
+    h3{
+      text-align: center;
+    }
+    p{
+      text-align: center;
+      font-size: 14px !important;
+    }
+  }
+  .imageItem{
+    p{
+      font-size: 14px;
+    }
+    img{
+      height: 40px;
+    }
+  }
+  .imgContainer{
+    img{
+      width: 100%;
+    }
+  }
+
 
 }

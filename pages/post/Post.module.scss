@@ -1,5 +1,8 @@
 .container {
+  overflow-x: hidden;
   padding: 5%;
+  max-width: 1300px;
+  margin: 0 auto;
   direction: rtl;
   font-family: IRANSans, 'Roboto', sans-serif;
 
@@ -43,15 +46,32 @@
 .headImage {
   display: flex;
   justify-content: center;
+  margin: 40px 0;
   img{
-    max-width: 100% !important;
+    max-width: 80vw !important;
     margin: 0;
-    height: 650px;
+    height: 600px;
     width: auto;
   }
 }
 
 
 @media (max-width: 600px) {
-
+  .container{
+    img {
+      max-width: 100%;
+      margin-right: 0;
+      height: auto;
+    }
+  }
+  .headImage {
+    display: flex;
+    justify-content: center;
+    img{
+      max-width: 90vw !important;
+      margin: 0;
+      height: 200px;
+      width: 100% !important;
+    }
+  }
 }

@@ -5,7 +5,7 @@ import Navbar from "../../components/layout/navbar";
 import Footer from "../../components/layout/footer"
 import MetaHead from "../../components/layout/meta-head"
 import translations from "../../assets/translations/pages/privacy";
-import * as images from "./images"
+import * as images from "../../components/pages/privacy/images"
 import {Row, Col} from "antd";
 
 const list:any = [1,2,3,4,5,6,7,8,9,10,11,12]
@@ -26,10 +26,10 @@ export default function Privacy() {
             {tr.privacy}
           </h1>
         <Row>
-          <Col lg={12} className={styles.mainImage}>
+          <Col lg={10} className={styles.mainImage}>
             <img src={images.privacy.src}/>
           </Col>
-          <Col lg={12}>
+          <Col lg={14}>
             {list.map((n: any) => (
               <Col lg={24} key={n}>
                 <div className={styles.post}>

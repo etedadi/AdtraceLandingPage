@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useRouter} from "next/router";
-import useWindowSize from "../../../utills/useWindowSize"
+import useWindowSize from "../../../utills/useWindowSize/index"
 import { Menu } from 'antd';
 import { CheckOutlined, PieChartOutlined, GlobalOutlined, WarningOutlined, TeamOutlined, UserOutlined, MobileOutlined , MenuUnfoldOutlined, MenuFoldOutlined} from '@ant-design/icons';
 import * as images from '../../../assets/images'
@@ -11,8 +11,9 @@ import Link from "next/link";
 
 
 export default function Navbar(props:any) {
+  const {locale, pathname}:any = useRouter()
   // @ts-ignore
-  const tr = translations[useRouter().locale]
+  const tr = translations[locale]
   const [current, setCurrent] = useState('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const size:any = useWindowSize();
@@ -20,7 +21,7 @@ export default function Navbar(props:any) {
 
   const handleClick = (e:any) => {
     console.log('click ', e);
-    // setCurrent(e.key)
+    setMobileMenuOpen(false)
   };
 
   return (
@@ -35,12 +36,13 @@ export default function Navbar(props:any) {
           style={mobile ? mobileMenuOpen ? {height: 'auto'} : {height: 0} : {height: 80}}
           mode={mobile ? "inline" : "horizontal"}
         >
+          {!mobile &&
           <Menu.Item key="mail" >
             <Link href="/">
               <img src={images.AdTraceIcon} style={{height: 46}}/>
             </Link>
           </Menu.Item>
-
+          }
           <Menu.SubMenu key="possibilities"  title={tr.possibilities}>
             <Menu.Item key="setting:1"><CheckOutlined className="icon20" /><Link href="/#possibility1">{tr.pItem1}</Link></Menu.Item>
             <Menu.Item key="setting:2"><PieChartOutlined className="icon20" /> <Link href="/#possibility2">{tr.pItem2}</Link></Menu.Item>
@@ -84,9 +86,9 @@ export default function Navbar(props:any) {
       <div
         className={styles.left}
         style={{visibility: !useRouter().pathname.includes('/FAQs') &&
-          !useRouter().pathname.includes('/privacy') &&
-          !useRouter().pathname.includes('/post') &&
-          !useRouter().pathname.includes('/blog') ? "visible" : 'hidden' }}
+          !pathname.includes('/privacy') &&
+          !pathname.includes('/post') &&
+          !pathname.includes('/blog') ? "visible" : 'hidden' }}
       >
         <Link href={useRouter().pathname} locale={useRouter().locale === "fa" ? "en" : "fa"}>
          <span className={styles.locale}>

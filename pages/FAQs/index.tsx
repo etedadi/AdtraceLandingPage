@@ -6,7 +6,7 @@ import Navbar from "../../components/layout/navbar";
 import Footer from "../../components/layout/footer"
 import MetaHead from "../../components/layout/meta-head"
 import translations from "../../assets/translations/pages/FAQs";
-import * as images from "./images"
+import * as images from "../../components/pages/FAQs/images"
 import {Row, Col} from "antd";
 
 
@@ -47,10 +47,10 @@ export default function FAQs() {
             {tr.FAQs}
           </h1>
         <Row>
-          <Col lg={12} className={styles.mainImage}>
+          <Col lg={10} className={styles.mainImage}>
             <img src={images.faq.src}/>
           </Col>
-          <Col lg={12}>
+          <Col lg={14}>
             {list.map((item: any) => (
               <Col lg={24} key={list.id}>
                 <div className={styles.post}>

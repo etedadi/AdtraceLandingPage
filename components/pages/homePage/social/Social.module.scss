@@ -1,5 +1,10 @@
 .container {
-  padding: 5% 7%;
+  position: relative;
+  bottom: -100px;
+  padding: 0 7% 5% 7%;
+  background: white;
+  z-index: 1;
+  border-radius: 90px;
   h3 {
     color: #888b90;
     font-size: 24px;
@@ -39,5 +44,23 @@
 }
 
 @media (max-width: 600px) {
+  .container{
+    border-radius: 40px;
+    padding: 0 0 10% 0;
+    h3{
+      padding: 15px;
+      font-size: 20px;
+    }
+  }
+  .card{
+    width: 100%;
+    h4{
+      font-size: 15px !important;
+    }
+    p{
+      padding-bottom: 0;
+    }
+
+  }
 
 }

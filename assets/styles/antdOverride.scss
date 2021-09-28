@@ -54,8 +54,16 @@
   }
 }
 
+.ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title{
+   padding-left: 24px !important;
+   padding-right: 24px !important;
+}
+
 
 // swiper
+.swiper{
+  z-index: 0;
+}
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
   bottom: -6px!important;
 }

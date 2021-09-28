@@ -26,7 +26,7 @@ export default function Blog({posts}: any) {
           </h1>
         <Row className={styles.list}>
           {posts.map((post: any) => (
-            <Col xs={24} xl={8} xxl={6} key={post.id}>
+            <Col xs={24} lg={8} xxl={6} key={post.id}>
               <div className={styles.post}>
                 <Link href={`post/${post.id}`}>
                 <img src={post._embedded['wp:featuredmedia'][0].media_details?.sizes.medium.source_url} />

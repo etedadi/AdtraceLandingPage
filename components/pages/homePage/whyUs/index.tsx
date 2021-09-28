@@ -32,7 +32,7 @@ export default function WhyUs() {
 
       <Row className={styles.part2}>
         {list.map(item =>(
-          <Col lg={6}>
+          <Col lg={6} key={item.title}>
             <img src={item.img.src}/>
             <h3>{item.title}</h3>
             <hr />

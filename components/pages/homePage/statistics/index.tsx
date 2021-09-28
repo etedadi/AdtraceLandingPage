@@ -16,19 +16,19 @@ export default function Statistics() {
         {tr['statistics-title']}
       </h3>
       <Row>
-        <Col lg={8}>
+        <Col xs={24} lg={8}>
           <div className={styles.card}>
             <Progress type="circle" percent={65} strokeColor="rgb(120, 207, 192)" width={180} format={percent => '53,783,351'} />
             <p>{tr['statistics-item1']}</p>
           </div>
         </Col>
-          <Col lg={8}>
+          <Col xs={24} lg={8}>
             <div className={styles.card}>
               <Progress type="circle" percent={80} strokeColor="rgb(120, 207, 192)" width={180} format={percent => '104,581,786'} />
               <p>{tr['statistics-item2']}</p>
             </div>
           </Col>
-          <Col lg={8}>
+          <Col xs={24} lg={8}>
             <div className={styles.card}>
               <Progress type="circle" percent={50} strokeColor="rgb(120, 207, 192)" width={180} format={percent => '410'} />
               <p>{tr['statistics-item3']}</p>

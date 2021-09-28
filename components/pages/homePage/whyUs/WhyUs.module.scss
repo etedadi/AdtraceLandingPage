@@ -55,7 +55,7 @@
       margin-top: 15px;
       color: #888b90;
       font-size: 24px;
-      font-weight: bold;
+      font-weight: 300;
     }
     hr{
       width: 100%;
@@ -75,5 +75,11 @@
 
 
 @media (max-width: 600px) {
+  .container{
+    padding: 5% 15px;
+  }
+  .part1{
+    padding: 15px;
+  }
 
 }

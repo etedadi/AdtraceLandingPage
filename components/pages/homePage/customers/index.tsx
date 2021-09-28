@@ -38,7 +38,7 @@ export default function Customers() {
       </h3>
       <Row>
         {list.map(item =>
-            <Col lg={4} className={styles.logo} key={item.name}>
+            <Col xs={8} lg={4} className={styles.logo} key={item.name}>
               <Tooltip title={item.name}>
                 <img src={item.logo.src} />
               </Tooltip>

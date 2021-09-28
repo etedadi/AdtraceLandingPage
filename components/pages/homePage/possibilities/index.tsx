@@ -67,7 +67,7 @@ export default function Possibilities() {
         </div>
         <Row className={styles.content}>
           {list.map((item) =>
-            <Col span={8} key={item.title} className={styles.card}>
+            <Col xs={24} lg={8} key={item.title} className={styles.card}>
               <img src={item.img.src}/>
               <h3>{item.title}</h3>
               <p>{item.des}</p>
@@ -79,16 +79,16 @@ export default function Possibilities() {
       <div className={styles.bg}/>
       <div className={styles.descriptions}>
         {list2.map((n, index) =>
-          <Row className={styles.cardDes} id={`possibility${index + 1}`}>
-            <Col lg={12} push={index % 2 === 0 ? 12 : 0} className={styles.imgContainer}>
+          <Row className={styles.cardDes} id={`possibility${index + 1}`} key={n.title}>
+            <Col xs={24} lg={{span: 12, push: index % 2 === 0 ? 12 : 0}}  className={styles.imgContainer}>
               <img src={n.img.src}/>
             </Col>
-            <Col lg={12} pull={index % 2 === 0 ? 12 : 0}>
+            <Col xs={25} lg={{span:12, pull: index % 2 === 0 ? 12 : 0}}>
               <h3>{n.title}</h3>
               <h4>{n.title2}</h4>
               <hr/>
               <p>{n.des}</p>
-              <ul style={index === 5 ? {display: "flex", justifyContent: "space-between"} : {}}>
+              <ul style={index === 5 ? {display: "flex", justifyContent: "space-between", padding:0} : {}}>
                 {n.items.map((item: any) =>
                   (index !== 5 ?
                     <li><strong>{item}</strong></li>

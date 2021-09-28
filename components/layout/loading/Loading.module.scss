@@ -1,0 +1,44 @@
+.inlineLoading {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255);
+  transition: opacity 1s ease-in-out;
+  z-index: 11;
+
+  img {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: auto;
+  }
+}
+
+.fullPageLoading {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  justify-content: center;
+  transition: opacity 1s ease-in-out;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  z-index: 12;
+
+  img {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+  }
+}
+

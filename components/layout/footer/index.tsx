@@ -8,12 +8,12 @@ import translations from "../../../assets/translations/layout/footer";
 import {useRouter} from "next/router";
 
 
-export default function Footer() {
+export default function Footer(props:any) {
   // @ts-ignore
   const tr = translations[useRouter().locale]
 
   return(
-    <Row className={styles.footer}>
+    <Row className={styles.footer} style={props.rounded ? {paddingTop: 150} : {}}>
       <Col lg={12} id="aboutUs">
         <h3 style={{paddingTop: 0}}><img src={images.AdTraceIconLight} /></h3>
         <p>{tr['aboutUs-content']}</p>
@@ -47,8 +47,10 @@ export default function Footer() {
             <a target="_blank" href="mailto:info@adtrace.io" rel="noreferrer">{tr.email}</a>
           </div>
         </div>
-
       </Col>
+      <div className={styles.rights}>
+        <p style={{textAlign: "center"}}>{tr.rights}</p>
+      </div>
 
     </Row>
   )

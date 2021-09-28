@@ -11,6 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="shortcut icon" href="/static/favicon.ico" />
+          <script async type="text/javascript" src="/static/chat.js"></script>
         </Head>
       <body>
         <Main />

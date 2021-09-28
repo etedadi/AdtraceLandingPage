@@ -34,9 +34,9 @@ export default function Partners() {
       </h3>
       <Row>
         {list.map(item =>
-            <Col lg={3} className={styles.logo} key={item.name}>
+            <Col xs={8} lg={3} className={styles.logo} key={item.name}>
               <Tooltip title={item.name}>
-                <a href={item.link} target="_blank">
+                <a href={item.link} target="_blank" rel="noreferrer" >
                   <img src={item.logo.src} />
                 </a>
               </Tooltip>

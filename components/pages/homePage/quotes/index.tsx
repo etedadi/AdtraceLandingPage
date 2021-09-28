@@ -10,6 +10,7 @@ import SwiperCore, {
 } from 'swiper';
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
+import useWindowSize from "../../../../utills/useWindowSize";
 
 
 SwiperCore.use([Autoplay,Navigation,Pagination]);
@@ -17,6 +18,8 @@ SwiperCore.use([Autoplay,Navigation,Pagination]);
 export default function Quotes() {
   // @ts-ignore
   const tr = translations[useRouter().locale]
+  const size:any = useWindowSize();
+  const mobile =  size.width < 576
 
   const list :any = [
     {
@@ -48,11 +51,11 @@ export default function Quotes() {
         {tr['quotes-title']}
       </h3>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={mobile ? 1 : 3}
         spaceBetween={20}
         centeredSlides={true}
         pagination={{ clickable: true }}
-        navigation={true}
+        navigation={false}
         loop={true}
         autoplay={{
           "delay": 10000,
