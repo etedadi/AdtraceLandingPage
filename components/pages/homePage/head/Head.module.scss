@@ -1,6 +1,8 @@
 .container {
-
+  position: sticky;
+  top: 0;
   overflow-x: hidden;
+  z-index: -1;
   min-height: 100vh;
   background: rgb(4, 113, 111);
   background: radial-gradient(circle, rgba(4, 113, 111, 1) 15%, rgba(8, 50, 79, 1) 100%);
@@ -24,17 +26,18 @@
   }
 
   h4 {
-    font-weight: lighter;
-    font-size: 24px;
+    font-weight: 300;
+    font-size: 20px;
   }
 
   h3 {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 27px;
   }
 
   p {
     line-height: 24px;
+    font-weight: 200;
     color: white !important;
   }
 }

@@ -1,14 +1,16 @@
 import styles from "./Possibilities.module.scss";
 import React from "react";
 import * as images from "./images"
+import Zoom from 'react-reveal/Zoom';
 import {Button, Col, Row} from "antd";
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
 
 
 export default function Possibilities() {
+  const {locale} = useRouter()
   // @ts-ignore
-  const tr = translations[useRouter().locale]
+  const tr = translations[locale]
 
   const list = [
     {img: images.icon1, title: tr['Possibilities-list1-title1'], des: tr['Possibilities-list1-des1']},
@@ -67,12 +69,18 @@ export default function Possibilities() {
         </div>
         <Row className={styles.content}>
           {list.map((item) =>
-            <Col xs={24} lg={8} key={item.title} className={styles.card}>
-              <img src={item.img.src}/>
-              <h3>{item.title}</h3>
-              <p>{item.des}</p>
-              <Button>{tr.more}</Button>
+
+            <Col xs={24} lg={8} key={item.title}>
+              <Zoom clear fraction={0.1} >
+                <div className={styles.card}>
+                  <img src={item.img.src}/>
+                  <h3>{item.title}</h3>
+                  <p>{item.des}</p>
+                  <Button>{tr.more}</Button>
+                </div>
+              </Zoom>
             </Col>
+
           )}
         </Row>
       </div>
@@ -81,9 +89,12 @@ export default function Possibilities() {
         {list2.map((n, index) =>
           <Row className={styles.cardDes} id={`possibility${index + 1}`} key={n.title}>
             <Col xs={24} lg={{span: 12, push: index % 2 === 0 ? 12 : 0}}  className={styles.imgContainer}>
+              <Zoom clear>
               <img src={n.img.src}/>
+              </Zoom>
             </Col>
             <Col xs={25} lg={{span:12, pull: index % 2 === 0 ? 12 : 0}}>
+              <Zoom clear cascade={locale === 'en'}>
               <h3>{n.title}</h3>
               <h4>{n.title2}</h4>
               <hr/>
@@ -98,6 +109,7 @@ export default function Possibilities() {
                     </div>)
                 )}
               </ul>
+              </Zoom>
             </Col>
           </Row>
         )}

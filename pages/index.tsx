@@ -19,10 +19,10 @@ import {useRouter} from "next/router";
 export default function Home({posts}: any) {
   // @ts-ignore
   const tr = translations[useRouter().locale]
-  const [transparent, setTransparent] = useState(false);
+  const [transparent, setTransparent] = useState(true);
   const handleScroll = () => {
     const position = window.pageYOffset;
-    if (position > 100) {
+    if (position > 400) {
       setTransparent(false);
     } else {
       setTransparent(true);

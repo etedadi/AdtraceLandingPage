@@ -11,6 +11,7 @@ import SwiperCore, {
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
 import useWindowSize from "../../../../utills/useWindowSize";
+import Zoom from "react-reveal/Zoom";
 
 
 SwiperCore.use([Autoplay,Navigation,Pagination]);
@@ -62,9 +63,11 @@ export default function Quotes() {
           "disableOnInteraction": false
         }}
       >
+
           {list.map((item:any) =>
             <SwiperSlide key={item.name}>
             <div className={styles.card}>
+              <Zoom clear>
               <div>
                 <img src={images.quotesR.src}/>
               </div>
@@ -72,9 +75,11 @@ export default function Quotes() {
               <hr />
               <h4>{item.name}</h4>
               <span>{item.position}</span>
+              </Zoom>
             </div>
             </SwiperSlide>
           )}
+
       </Swiper>
 
     </div>

@@ -6,7 +6,7 @@
    box-shadow: 0 10px 55px 5px rgb(137 173 255 / 35%);
    border: 1px solid #e5e4e4;
    margin: -120px 0 0px 0;
-   z-index: 1;
+   z-index: -1;
 }
 
 .title{
@@ -23,6 +23,7 @@
   transition: all 0.3s ease-in-out;
   position: relative;
   display: flex;
+  height: 200px;
   bottom: 0;
   flex-flow: column;
   align-items: center;
@@ -72,6 +73,7 @@
 }
 
 .descriptions{
+  background: white;
   padding: 30px 5% 120px 5%;
   border-radius: 5px;
 }
@@ -135,7 +137,7 @@
   flex-flow: column;
   align-items: center;
   img{
-    height: 80px;
+    height: 60px;
   }
 }
 
@@ -167,6 +169,14 @@
   .imgContainer{
     img{
       width: 100%;
+    }
+  }
+  .cardDes{
+    h3{
+      font-size: 24px;
+    }
+    h4{
+      font-size: 21px;
     }
   }
 

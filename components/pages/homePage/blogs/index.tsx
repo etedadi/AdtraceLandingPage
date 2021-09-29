@@ -7,9 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/navigation"
 import 'swiper/css/pagination';
-import SwiperCore, {
-  Autoplay,Navigation,Pagination
-} from 'swiper';
+import Zoom from "react-reveal/Zoom";
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
 import useWindowSize from "../../../../utills/useWindowSize";
@@ -30,7 +28,7 @@ export default function Blogs({posts}:any) {
           slidesPerView={mobile ? 1 : 3}
           spaceBetween={20}
           centeredSlides={true}
-          pagination={mobile ? { clickable: true } : false}
+          pagination={{ clickable: true }}
           navigation={false}
           loop={true}
           autoplay={{
@@ -42,7 +40,9 @@ export default function Blogs({posts}:any) {
             <SwiperSlide key={item.id}>
               <div className={styles.card}>
                 <Link href={`post/${item.id}`}>
+                  <Zoom clear>
                   <img src={item._embedded['wp:featuredmedia'][0].source_url} />
+                  </Zoom>
                 </Link>
               </div>
             </SwiperSlide>

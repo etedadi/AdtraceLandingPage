@@ -1,10 +1,11 @@
 import React from "react";
-import Link from "next/link";
+import Zoom from "react-reveal/Zoom";
 import * as images from "./images"
 import styles from './Partners.module.scss'
 import {Col, Row, Tooltip} from "antd";
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
+import Image from "next/image";
 
 export default function Partners() {
   // @ts-ignore
@@ -35,11 +36,14 @@ export default function Partners() {
       <Row>
         {list.map(item =>
             <Col xs={8} lg={3} className={styles.logo} key={item.name}>
+              <Zoom clear>
               <Tooltip title={item.name}>
                 <a href={item.link} target="_blank" rel="noreferrer" >
-                  <img src={item.logo.src} />
+                  <Image src={item.logo.src} width={100} height={100} />
                 </a>
+
               </Tooltip>
+              </Zoom>
             </Col>
         )}
       </Row>

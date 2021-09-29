@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Head.module.scss'
 import img1 from './images/Group-16228.png'
+import Zoom from 'react-reveal/Zoom';
 import {Button} from "antd";
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
@@ -12,6 +13,7 @@ export default function Head() {
   return (
     <div className={styles.container}>
       <img src={img1.src} className={styles.img1}/>
+      <Zoom clear cascade>
       <div className={styles.texts}>
         <h4>{tr['head-title']}</h4>
         <h3>{tr['head-title2']}</h3>
@@ -29,6 +31,7 @@ export default function Head() {
           </a>
         </div>
       </div>
+      </Zoom>
 
     </div>
   )

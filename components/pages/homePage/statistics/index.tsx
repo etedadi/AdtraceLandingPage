@@ -5,6 +5,7 @@ import styles from './Statistics.module.scss'
 import {Col, Row, Progress} from "antd";
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
+import Zoom from "react-reveal/Zoom";
 
 export default function Statistics() {
   // @ts-ignore
@@ -17,22 +18,28 @@ export default function Statistics() {
       </h3>
       <Row>
         <Col xs={24} lg={8}>
+          <Zoom clear>
           <div className={styles.card}>
             <Progress type="circle" percent={65} strokeColor="rgb(120, 207, 192)" width={180} format={percent => '53,783,351'} />
             <p>{tr['statistics-item1']}</p>
           </div>
+          </Zoom>
         </Col>
           <Col xs={24} lg={8}>
+            <Zoom clear>
             <div className={styles.card}>
               <Progress type="circle" percent={80} strokeColor="rgb(120, 207, 192)" width={180} format={percent => '104,581,786'} />
               <p>{tr['statistics-item2']}</p>
             </div>
+            </Zoom>
           </Col>
           <Col xs={24} lg={8}>
+            <Zoom clear>
             <div className={styles.card}>
               <Progress type="circle" percent={50} strokeColor="rgb(120, 207, 192)" width={180} format={percent => '410'} />
               <p>{tr['statistics-item3']}</p>
             </div>
+            </Zoom>
           </Col>
       </Row>
 
