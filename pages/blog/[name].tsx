@@ -7,13 +7,15 @@ import Footer from "../../components/layout/footer"
 import MetaHead from "../../components/layout/meta-head"
 import categories from "../../constants/categories";
 import translations from "../../assets/translations/pages/blog";
-import Post from "../../components/shared/post";
 import {Row, Col} from "antd";
+import Post from "../../components/shared/post";
 
 
-export default function Blog({posts}: any) {
+export default function Blog({posts, params}: any) {
+  const {locale} = useRouter()
   // @ts-ignore
-  const tr = translations[useRouter().locale]
+  const tr = translations[locale]
+  const category:any = categories.filter((item) => item.slug === params.name )[0]
 
   return (
     <div>
@@ -24,26 +26,9 @@ export default function Blog({posts}: any) {
       <Navbar/>
       <div className={styles.container}>
           <h1 className={styles.title}>
-            {tr.blog}
+            {tr.blog + (category.slug ? ` / ${category.name}` : "")}
           </h1>
         <Row className={styles.list}>
-          <Col span={24}>
-            <h3>دسته‌بندی‌ها</h3>
-          </Col>
-          {categories.map((cat: any) => (
-            <Col xs={24} lg={8} key={cat.id}>
-              <div className={styles.category}>
-                <Link href={`blog/${cat.slug}`}>
-                  <h4>{cat.name}</h4>
-                </Link>
-              </div>
-            </Col>
-          ))}
-        </Row>
-        <Row className={styles.list2}>
-            <Col span={24}>
-              <h3>آخرین مطالب</h3>
-            </Col>
           {posts.map((post: any) => (
             <Col xs={24} lg={8} xxl={6} key={post.id}>
               <div className={styles.post}>
@@ -59,9 +44,23 @@ export default function Blog({posts}: any) {
 }
 
 
-export async function getStaticProps() {
+// This function gets called at build time
+export async function getStaticPaths() {
+  // Get the paths we want to pre-render based on posts
+  let paths:any = []
+  categories.map((cat:any) => {
+    paths.push({params: {name: cat.slug}, locale: 'fa'})
+  })
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps({ params }:any) {
+  const category:any = categories.filter((item) => item.slug === params.name)[0]
   // Call an external API endpoint to get posts
-  const res = await fetch('https://adtrace.io/fa/wp-json/wp/v2/posts?categories=1&_fields=id,link,title,date,excerpt,featured_media,_links,_embedded&_embed&per_page=100')
+  const res = await fetch(`https://adtrace.io/fa/wp-json/wp/v2/posts?categories=${category.id}&_fields=id,link,date,excerpt,title,featured_media,_links,_embedded&_embed&per_page=100`)
   const posts = await res.json()
 
   // By returning { props: { posts } }, the Blog component
@@ -69,6 +68,7 @@ export async function getStaticProps() {
   return {
     props: {
       posts,
+      params
     },
   }
 }

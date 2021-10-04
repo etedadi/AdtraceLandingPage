@@ -100,12 +100,12 @@ export default function Navbar(props: any) {
             </a>
           </Menu.Item>
           <Menu.Item key="about-us">
-            <Link href="/#aboutUs">
+            <Link href={`${pathname}#aboutUs`}>
               {tr.aboutUs}
             </Link>
           </Menu.Item>
           <Menu.Item key="contact-us">
-            <Link href="/#contactUs">
+            <Link href={`${pathname}#contactUs`}>
               {tr.contactUs}
             </Link>
           </Menu.Item>

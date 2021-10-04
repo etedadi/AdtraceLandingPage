@@ -7,16 +7,35 @@
     color:#58468c;
     margin-bottom: 40px;
 }
-.list{
+.category{
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid #00ae8f;
+    border-radius: 15px;
+    transition: all 0.5s;
+    padding: 15px;
+    font-size: 20px;
+    h4{
+        margin-bottom: 0;
+        color: #00ae8f;
+    }
+    &:hover{
+        background: #00ae8f;
+        h4{
+            color: white;
+        }
 
+    }
 }
-.list li {
+
+.list2 li {
     margin: 5px 0;
     color: gray;
 }
 .post{
     img{
         cursor: pointer;
+        border-radius: 15px;
         width: 100% !important;
         max-height: 300px;
     }

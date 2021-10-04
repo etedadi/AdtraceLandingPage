@@ -1,26 +1,30 @@
 import React from "react";
 import Link from "next/link";
-import * as images from "./images"
 import styles from './Blogs.module.scss'
-import {Col, Row, Tooltip} from "antd";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Row} from "antd";
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/navigation"
 import 'swiper/css/pagination';
 import Zoom from "react-reveal/Zoom";
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
+import Post from "../../../shared/post";
 import useWindowSize from "../../../../utills/useWindowSize";
+import ReactHtmlParser from "react-html-parser";
 
-export default function Blogs({posts}:any) {
+
+
+export default function Blogs({posts}: any) {
+  const {locale} = useRouter()
   // @ts-ignore
-  const tr = translations[useRouter().locale]
-  const size:any = useWindowSize();
-  const mobile =  size.width < 576
+  const tr = translations[locale]
+  const size: any = useWindowSize();
+  const mobile = size.width < 576
 
   return (
     <div className={styles.container}>
-      <h3>
+      <h3 className={styles.title}>
         {tr['blog-title']}
       </h3>
       <Row>
@@ -28,7 +32,7 @@ export default function Blogs({posts}:any) {
           slidesPerView={mobile ? 1 : 3}
           spaceBetween={20}
           centeredSlides={true}
-          pagination={{ clickable: true }}
+          pagination={{clickable: true}}
           navigation={false}
           loop={true}
           autoplay={{
@@ -36,15 +40,11 @@ export default function Blogs({posts}:any) {
             "disableOnInteraction": false
           }}
         >
-          {posts.map((item:any) =>
+          {posts.map((item: any) =>
             <SwiperSlide key={item.id}>
-              <div className={styles.card}>
-                <Link href={`post/${item.id}`}>
-                  <Zoom clear>
-                  <img src={item._embedded['wp:featuredmedia'][0].source_url} />
-                  </Zoom>
-                </Link>
-              </div>
+              <Zoom clear>
+                <Post item={item} />
+              </Zoom>
             </SwiperSlide>
           )}
         </Swiper>

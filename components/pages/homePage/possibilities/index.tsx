@@ -5,6 +5,7 @@ import Zoom from 'react-reveal/Zoom';
 import {Button, Col, Row} from "antd";
 import translations from "../../../../assets/translations/pages/home";
 import {useRouter} from "next/router";
+import Link from "next/link";
 
 
 export default function Possibilities() {
@@ -65,19 +66,23 @@ export default function Possibilities() {
     <>
       <div className={styles.container}>
         <div className={styles.title}>
-          <img src={images.logo.src}/>
+          <img src={locale === 'fa' ? images.logoFa.src : images.logoEn.src}/>
         </div>
         <Row className={styles.content}>
-          {list.map((item) =>
+          {list.map((item, index) =>
 
             <Col xs={24} lg={8} key={item.title}>
               <Zoom clear fraction={0.1} >
+
                 <div className={styles.card}>
                   <img src={item.img.src}/>
                   <h3>{item.title}</h3>
                   <p>{item.des}</p>
+                  <Link href={`/#possibility${index+1}`}>
                   <Button>{tr.more}</Button>
+                  </Link>
                 </div>
+
               </Zoom>
             </Col>
 

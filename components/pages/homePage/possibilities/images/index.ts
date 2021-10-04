@@ -1,4 +1,5 @@
-import logo from './Adtrace-Logo-02-2.png'
+import logoFa from './adtraceFa.png'
+import logoEn from './adtraceEn.png'
 import icon1 from './icon1.png'
 import icon2 from './icon2.png'
 import icon3 from './icon3.png'
@@ -19,7 +20,8 @@ import flutter from './flutter.png'
 import unity from './unity.png'
 
 export {
-  logo,
+  logoFa,
+  logoEn,
   icon1,
   icon2,
   icon3,

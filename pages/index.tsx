@@ -17,9 +17,19 @@ import {useRouter} from "next/router";
 
 
 export default function Home({posts}: any) {
+  const {locale, asPath} = useRouter()
   // @ts-ignore
-  const tr = translations[useRouter().locale]
+  const tr = translations[locale]
   const [transparent, setTransparent] = useState(true);
+
+  useEffect(() => {
+    handleInitHashScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const handleScroll = () => {
     const position = window.pageYOffset;
     if (position > 400) {
@@ -29,13 +39,16 @@ export default function Home({posts}: any) {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
+  // there is a bug in next Link that caused when we want to change a page and scroll to a section,
+  // it just change the page and doesn't scroll
+  const handleInitHashScroll = () => {
+    const targetSection = asPath.split('/#')[1]
+    if (targetSection) {
+      setTimeout(()=>  document.getElementById(targetSection)?.scrollIntoView(), 500)
+    }
+  }
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+
 
   return (
     <>
@@ -63,7 +76,7 @@ export default function Home({posts}: any) {
 
 export async function getStaticProps() {
   // Call an external API endpoint to get posts
-  const res = await fetch('https://adtrace.io/fa/wp-json/wp/v2/posts?_fields=id,link,title,featured_media,_links,_embedded&_embed&per_page=3')
+  const res = await fetch('https://adtrace.io/fa/wp-json/wp/v2/posts?_fields=id,link,title,date,excerpt,featured_media,_links,_embedded&_embed&per_page=3')
   const posts = await res.json()
 
   // By returning { props: { posts } }, the Blog component
