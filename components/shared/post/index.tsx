@@ -11,7 +11,7 @@ export default function Post({item}: any) {
   return (
     <Link href={`post/${item.id}`}>
       <div className={styles.card}>
-        <img src={item._embedded['wp:featuredmedia'][0].source_url}/>
+        <img src={item._embedded['wp:featuredmedia']?.[0].source_url}/>
         <div>
           <h3>{item.title?.rendered}</h3>
           <p>

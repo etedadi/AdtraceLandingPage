@@ -95,7 +95,7 @@ export default function Navbar(props: any) {
             </Link>
           </Menu.Item>
           <Menu.Item key="alipay">
-            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/adtrace" target="_blank" rel="noopener noreferrer">
               {tr.documents}
             </a>
           </Menu.Item>

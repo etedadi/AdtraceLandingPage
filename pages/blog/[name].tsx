@@ -49,7 +49,7 @@ export async function getStaticPaths() {
   // Get the paths we want to pre-render based on posts
   let paths:any = []
   categories.map((cat:any) => {
-    paths.push({params: {name: cat.slug}, locale: 'fa'})
+    paths.push({params: {name: cat.slug}})
   })
 
   // We'll pre-render only these paths at build time.

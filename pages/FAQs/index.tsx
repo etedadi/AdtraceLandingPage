@@ -12,9 +12,17 @@ import {Row, Col} from "antd";
 
 
 export default function FAQs() {
+  let adtrace:any = null
   // @ts-ignore
   const tr = translations[useRouter().locale]
-
+  React.useEffect(() => {
+    const AdTrace = require('react-adtrace').default;
+     adtrace = new AdTrace({
+      app_token: '9e8tyd0l38s7',
+      environment: 'sandbox', // or 'sandbox' in case you are testing SDK locally with your web app
+      unique_id: '5057e23a-fh94-878o-b8a2-4ac4e20d48b2', // each web app user needs to have unique identifier,
+    });
+  }, [])
   const list:any = [
     {
       title: tr['item1-title'],
@@ -35,6 +43,22 @@ export default function FAQs() {
 
   ]
 
+  const test = ()=>{
+    const eventConfig = {
+      event_token: '40mfee', // event token
+    };
+    adtrace.trackEvent(eventConfig, (result) => {
+      adtrace.trackEvent(eventConfig, (result) => {
+        console.log(result, 'event');
+      }, (errorMsg, error) => {
+        console.log(errorMsg, error, 'event');
+      });
+    }, (errorMsg, error) => {
+      console.log(errorMsg, error, 'event');
+    });
+
+  }
+
   return (
     <div>
       <MetaHead
@@ -49,6 +73,7 @@ export default function FAQs() {
         <Row>
           <Col lg={10} className={styles.mainImage}>
             <img src={images.faq.src}/>
+            <button onClick={test}>test</button>
           </Col>
           <Col lg={14}>
             {list.map((item: any) => (

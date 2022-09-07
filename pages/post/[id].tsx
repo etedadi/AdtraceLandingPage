@@ -55,7 +55,7 @@ export async function getStaticProps({ params }:any) {
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(`https://adtrace.io/fa/wp-json/wp/v2/posts/${params.id}`)
   const post = await res.json()
-  const x = await fetch(post._links["wp:featuredmedia"][0].href)
+  const x = await fetch(post._links["wp:featuredmedia"]?.[0].href || "https://adtrace.io/fa/wp-json/wp/v2/media/1966")
   const image = await x.json()
   // Pass post data to the page via props
   return { props: { post, image } }
